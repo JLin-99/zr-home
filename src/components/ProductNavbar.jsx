@@ -1,3 +1,3 @@
 export default function ProductNavbar() {
-  return <div>ProductNavbar</div>;
+  return <div className=" bg-gray-200">ProductNavbar</div>;
 }

@@ -1,3 +1,3 @@
 export default function ProductDisplay() {
-  return <div>ProductDisplay</div>;
+  return <div className=" bg-gray-400">ProductDisplay</div>;
 }

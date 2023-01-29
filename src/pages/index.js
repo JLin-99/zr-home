@@ -13,10 +13,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      <ProductNavbar />
-      <ProductCategories />
-      <ProductDisplay />
+      <main className="grid h-screen grid-cols-[5rem_27rem_1fr] grid-rows-[6rem_1fr] bg-red-300">
+        <Header />
+        <ProductNavbar />
+        <ProductCategories />
+        <ProductDisplay />
+      </main>
     </>
   );
 }
