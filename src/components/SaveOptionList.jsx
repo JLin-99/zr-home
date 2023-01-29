@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { BsChevronDown, BsCheck } from "react-icons/bs";
 
-const options = ["Guardar y salir", "Salir sin guardar", "Guardar y continuar"];
+const options = ["Guardar y continuar", "Guardar y salir", "Salir sin guardar"];
 
 export default function SaveOptionList() {
   const [selected, setSelected] = useState(options[0]);
