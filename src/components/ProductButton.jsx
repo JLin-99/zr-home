@@ -30,6 +30,8 @@ export default function ProductButton({ btnName }) {
       dispatch({ type: "TOGGLE_MENU", payload: productMenuOpen + 1 });
     } else {
       dispatch({ type: "TOGGLE_MENU", payload: 0 });
+      dispatch({ type: "SET_PRODUCTS", payload: [] });
+      dispatch({ type: "SET_MENU_PRODUCT", payload: "" });
     }
   };
 

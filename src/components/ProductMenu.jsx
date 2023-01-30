@@ -5,11 +5,13 @@ import CategoryList from "./CategoryList";
 import ProductList from "./ProductList";
 
 export default function ProductMenu() {
-  const { productsLoading, productMenuOpen, dispatch } =
+  const { menuProduct, productsLoading, productMenuOpen, dispatch } =
     useContext(ProductContext);
 
   const handleClick = () => {
     dispatch({ type: "TOGGLE_MENU", payload: 0 });
+    dispatch({ type: "SET_PRODUCTS", payload: [] });
+    dispatch({ type: "SET_MENU_PRODUCT", payload: "" });
   };
   return (
     <>
@@ -21,7 +23,7 @@ export default function ProductMenu() {
         {productsLoading ? (
           <p>Loading...</p>
         ) : (
-          (false && <CategoryList />) || (true && <ProductList />)
+          (true && <CategoryList />) || (true && <ProductList />)
         )}
       </div>
       <BsChevronLeft
