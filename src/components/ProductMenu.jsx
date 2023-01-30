@@ -7,12 +7,16 @@ import ProductList from "./ProductList";
 export default function ProductMenu() {
   const { productMenuOpen, dispatch } = useContext(ProductContext);
 
-  const handleClick = (path) => {
+  const handleClick = () => {
     dispatch({ type: "TOGGLE_MENU", payload: !productMenuOpen });
   };
   return (
     <>
-      <div className={`h-full w-full p-5 ${!open && "scale-0"} duration-200`}>
+      <div
+        className={`h-full w-full p-5 ${
+          !productMenuOpen && "scale-0"
+        } duration-200`}
+      >
         {true && <CategoryList />}
         {false && <ProductList />}
       </div>
