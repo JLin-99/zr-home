@@ -1,9 +1,16 @@
+import ProductContext from "@/context/ProductContext";
+import { useContext } from "react";
 import { SiHomeassistant } from "react-icons/si";
 import SaveOptionList from "./SaveOptionList";
+
 export default function Header() {
+  const { dispatch } = useContext(ProductContext);
   return (
-    <header className="col-span-3 flex max-h-24 items-center justify-between bg-[#333333] text-white  sm:px-16 lg:px-32">
-      <div className="flex flex-shrink-0 cursor-pointer select-none flex-row items-center text-3xl">
+    <header className="col-span-3 flex max-h-24 items-center justify-between bg-[#333333] text-white sm:px-16 lg:px-32">
+      <div
+        className="flex flex-shrink-0 cursor-pointer select-none flex-row items-center text-3xl"
+        onClick={() => dispatch({ type: "SET_MESSAGE", payload: "" })}
+      >
         <span className="flex flex-shrink-0 items-center text-amber-500">
           <SiHomeassistant className="mr-1" /> Zr
         </span>

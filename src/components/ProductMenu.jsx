@@ -1,12 +1,19 @@
+import products from "@/apis/products";
 import ProductContext from "@/context/ProductContext";
 import { useContext, useEffect } from "react";
 import { BsChevronLeft } from "react-icons/bs";
 import CategoryList from "./CategoryList";
 import ProductList from "./ProductList";
+import Spinner from "./Spinner";
 
 export default function ProductMenu() {
-  const { currentCategory, productsLoading, productMenuOpen, dispatch } =
-    useContext(ProductContext);
+  const {
+    currentCategory,
+    productsLoading,
+    productMenuOpen,
+    products,
+    dispatch,
+  } = useContext(ProductContext);
 
   const handleClick = () => {
     dispatch({ type: "RESET_PRODUCTS_MENU" });
@@ -14,12 +21,14 @@ export default function ProductMenu() {
   return (
     <>
       <div
-        className={`h-full w-full p-5 duration-300 ${
-          !productMenuOpen && "scale-0"
+        className={`h-full w-full p-5 text-[#707070] transition-opacity duration-700 ease-in ${
+          !productMenuOpen
+            ? "-translate-x-3 opacity-0"
+            : "translate-x-0 opacity-100"
         }`}
       >
-        {productsLoading ? (
-          <p>Loading...</p>
+        {(productsLoading || !products.length) && productMenuOpen ? (
+          <Spinner />
         ) : currentCategory === "" ? (
           <CategoryList />
         ) : (

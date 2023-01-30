@@ -1,15 +1,17 @@
-import { Fragment, useState } from "react";
+import { Fragment, useContext, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { BsChevronDown, BsCheck } from "react-icons/bs";
+import ProductContext from "@/context/ProductContext";
 
 const options = ["Guardar y continuar", "Guardar y salir", "Salir sin guardar"];
 
 export default function SaveOptionList() {
   const [selected, setSelected] = useState(options[0]);
+  const { dispatch } = useContext(ProductContext);
 
   const handleSaveOption = (e) => {
     e.preventDefault();
-    alert("Opción aplicada: " + selected);
+    dispatch({ type: "SET_MESSAGE", payload: selected + " (Presionado)" });
   };
 
   return (
@@ -18,11 +20,11 @@ export default function SaveOptionList() {
         <Listbox.Button className="relative w-full cursor-pointer bg-transparent pr-9 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
           <div
             onClick={handleSaveOption}
-            className="block h-10 w-40 min-w-full truncate rounded-l-md border-2 border-gray-100 bg-white text-center leading-9 hover:sepia"
+            className="block h-10 w-40 min-w-full truncate rounded-l-md border-2 border-gray-100 bg-white text-center leading-9 hover:font-medium hover:tracking-tight hover:sepia"
           >
             {selected}
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center rounded-r-md border-2 border-gray-100 bg-white px-2 text-center leading-10 hover:sepia">
+          <div className="absolute inset-y-0 right-0 flex items-center rounded-r-md border-2 border-gray-100 bg-white px-2 text-center leading-10 hover:border-l-2 hover:border-l-[#CCCCCC] hover:sepia">
             <BsChevronDown
               className="h-5 w-5 text-black hover:text-amber-900"
               aria-hidden="true"
@@ -44,7 +46,7 @@ export default function SaveOptionList() {
                 key={optionIdx}
                 className={({ active }) =>
                   `relative cursor-default select-none py-2 pl-8 pr-2 ${
-                    active ? "bg-amber-100 text-amber-900" : "text-gray-900"
+                    active ? "bg-amber-100 sepia" : "text-gray-900"
                   }`
                 }
                 value={option}
