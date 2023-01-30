@@ -27,9 +27,9 @@ export default function ProductButton({ btnName }) {
         method: "get",
         url: "/" + path,
       });
-      dispatch({ type: "TOGGLE_MENU", payload: true });
+      dispatch({ type: "TOGGLE_MENU", payload: productMenuOpen + 1 });
     } else {
-      dispatch({ type: "TOGGLE_MENU", payload: false });
+      dispatch({ type: "TOGGLE_MENU", payload: 0 });
     }
   };
 

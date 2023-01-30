@@ -12,7 +12,7 @@ export default function ProductList() {
         menuProduct
       )}`}</p>
       <h2 className="pb-4 font-bold">{product?.category}</h2>
-      <div className="grid grid-cols-3 items-center justify-between gap-y-4 gap-x-3">
+      <div className="grid-cols-fill-7 grid items-center justify-between gap-y-4 gap-x-3">
         {product &&
           product.products.map((prod, idx) => (
             <Product key={idx} product={prod} />

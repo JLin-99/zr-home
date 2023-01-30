@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function MovementButton() {
   return (
-    <div className="grid w-[3.75rem] select-none grid-cols-3 grid-rows-3 rounded bg-white">
+    <div className="grid-cols-3 grid w-[3.75rem] select-none grid-rows-3 rounded bg-white">
       <div></div>
       <div className="relative h-5 w-5 cursor-pointer bg-white">
         <Image

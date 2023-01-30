@@ -1,5 +1,5 @@
 import ProductContext from "@/context/ProductContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { BsChevronLeft } from "react-icons/bs";
 import CategoryList from "./CategoryList";
 import ProductList from "./ProductList";
@@ -9,7 +9,7 @@ export default function ProductMenu() {
     useContext(ProductContext);
 
   const handleClick = () => {
-    dispatch({ type: "TOGGLE_MENU", payload: !productMenuOpen });
+    dispatch({ type: "TOGGLE_MENU", payload: 0 });
   };
   return (
     <>
@@ -21,7 +21,7 @@ export default function ProductMenu() {
         {productsLoading ? (
           <p>Loading...</p>
         ) : (
-          (true && <CategoryList />) || (true && <ProductList />)
+          (false && <CategoryList />) || (true && <ProductList />)
         )}
       </div>
       <BsChevronLeft

@@ -7,7 +7,7 @@ export const ProductProvider = ({ children }) => {
   const initialState = {
     products: [],
     productsLoading: false,
-    productMenuOpen: false,
+    productMenuOpen: 0,
     menuProduct: "",
     productMenuCategory: "",
   };

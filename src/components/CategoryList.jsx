@@ -1,6 +1,6 @@
 import ProductContext from "@/context/ProductContext";
 import { toTitleCase } from "@/utils/utils";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CategoryRow from "./CategoryRow";
 
 export default function CategoryList() {
