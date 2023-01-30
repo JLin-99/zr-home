@@ -1,16 +1,22 @@
-import Image from "next/image";
+import ProductContext from "@/context/ProductContext";
+import { toTitleCase } from "@/utils/utils";
+import { useContext } from "react";
 import Product from "./Product";
 
 export default function ProductList() {
+  const { menuProduct, products } = useContext(ProductContext);
+  const product = products[0];
   return (
     <div>
-      <p className="pb-3 text-xs text-gray-400">{"<"} Aberturas</p>
-      <h2 className="pb-4 font-bold">Puertas</h2>
+      <p className="pb-3 text-xs text-gray-400">{`< ${toTitleCase(
+        menuProduct
+      )}`}</p>
+      <h2 className="pb-4 font-bold">{product?.category}</h2>
       <div className="grid grid-cols-3 items-center justify-between gap-y-4 gap-x-3">
-        <Product name="Puerta A" />
-        <Product name="Puerta B" />
-        <Product name="Puerta C" />
-        <Product name="Puerta D" />
+        {product &&
+          product.products.map((prod, idx) => (
+            <Product key={idx} product={prod} />
+          ))}
       </div>
     </div>
   );

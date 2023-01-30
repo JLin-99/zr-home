@@ -3,6 +3,7 @@ import axiosInstance from "../apis/products";
 import ProductContext from "@/context/ProductContext";
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
+import { formatProducts } from "@/utils/utils";
 
 export default function ProductButton({ btnName }) {
   const [products, loading, axiosFetch] = useAxios();
@@ -54,17 +55,4 @@ export default function ProductButton({ btnName }) {
       </label>
     </div>
   );
-}
-
-function formatProducts(categories) {
-  const formattedProducts = [];
-  categories.forEach((category) => {
-    const productsObj = { category: category.name, products: [] };
-    category.items.forEach((product) => {
-      productsObj.products.push(product);
-    });
-    formattedProducts.push(productsObj);
-  });
-
-  return formattedProducts;
 }

@@ -9,6 +9,7 @@ export const ProductProvider = ({ children }) => {
     productsLoading: false,
     productMenuOpen: false,
     menuProduct: "",
+    productMenuCategory: "",
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);

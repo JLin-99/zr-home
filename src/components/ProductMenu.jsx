@@ -5,7 +5,8 @@ import CategoryList from "./CategoryList";
 import ProductList from "./ProductList";
 
 export default function ProductMenu() {
-  const { productMenuOpen, dispatch } = useContext(ProductContext);
+  const { productsLoading, productMenuOpen, dispatch } =
+    useContext(ProductContext);
 
   const handleClick = () => {
     dispatch({ type: "TOGGLE_MENU", payload: !productMenuOpen });
@@ -17,8 +18,11 @@ export default function ProductMenu() {
           !productMenuOpen && "scale-0"
         } duration-200`}
       >
-        {true && <CategoryList />}
-        {false && <ProductList />}
+        {productsLoading ? (
+          <p>Loading...</p>
+        ) : (
+          (true && <CategoryList />) || (true && <ProductList />)
+        )}
       </div>
       <BsChevronLeft
         className={`absolute bottom-[calc(50%-2.5rem)] -right-6 z-20 h-20 w-6 cursor-pointer rounded-r bg-inherit p-0.5 pr-1 font-black duration-200 hover:text-amber-200 ${
