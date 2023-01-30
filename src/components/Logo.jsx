@@ -7,7 +7,11 @@ export default function Logo() {
   return (
     <div
       className="flex flex-shrink-0 cursor-pointer select-none flex-row items-center text-3xl"
-      onClick={() => dispatch({ type: "SET_MESSAGE", payload: "" })}
+      onClick={() => {
+        dispatch({ type: "SET_MESSAGE", payload: "" });
+        dispatch({ type: "SET_DISPLAYED_IMAGE", payload: "" });
+        dispatch({ type: "RESET_DEPARTMENT_MENU" });
+      }}
     >
       <span className="flex flex-shrink-0 items-center text-amber-500">
         <SiHomeassistant className="mr-1" /> Zr

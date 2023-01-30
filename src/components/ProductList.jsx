@@ -7,6 +7,7 @@ export default function ProductList() {
   const { departmentMenu, products, dispatch, currentCategory } =
     useContext(ProductContext);
   const product = products.find((prod) => prod.category === currentCategory);
+
   return (
     <div className="h-full w-full overflow-scroll">
       <p

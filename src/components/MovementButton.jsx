@@ -5,7 +5,7 @@ import { useContext } from "react";
 export default function MovementButton() {
   const { dispatch } = useContext(ProductContext);
   return (
-    <div className="grid w-[3.75rem] select-none grid-cols-3 grid-rows-3 rounded bg-white">
+    <div className="grid w-[3.75rem] select-none grid-cols-3 grid-rows-3 rounded bg-white shadow">
       <div></div>
       <div
         className="relative h-5 w-5 cursor-pointer bg-white"

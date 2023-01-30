@@ -14,6 +14,8 @@ const productReducer = (state, action) => {
       return { ...state, currentCategory: action.payload };
     case "SET_MESSAGE":
       return { ...state, message: action.payload };
+    case "SET_DISPLAYED_IMAGE":
+      return { ...state, displayedImage: action.payload };
     case "RESET_DEPARTMENT_MENU":
       return {
         ...state,

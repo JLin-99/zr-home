@@ -12,6 +12,7 @@ export const ProductProvider = ({ children }) => {
     productMenuCategory: "",
     currentCategory: "",
     message: "",
+    displayedImage: "",
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);

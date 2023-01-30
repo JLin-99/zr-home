@@ -20,7 +20,7 @@ export default function DepartmentMenu() {
   return (
     <>
       <div
-        className={`h-full w-full p-5 text-[#707070] transition-opacity duration-700 ease-in ${
+        className={`h-full w-full p-5 text-[#707070] shadow transition-opacity duration-700 ease-in ${
           !departmentMenuOpen
             ? "-translate-x-3 opacity-0"
             : "translate-x-0 opacity-100"

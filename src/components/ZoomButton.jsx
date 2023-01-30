@@ -5,7 +5,7 @@ import { BiPlus, BiMinus } from "react-icons/bi";
 export default function ZoomButton() {
   const { dispatch } = useContext(ProductContext);
   return (
-    <div className="flex h-[3.75rem] w-6 cursor-pointer flex-col items-center rounded bg-white text-[#707070]">
+    <div className="flex h-[3.75rem] w-6 cursor-pointer flex-col items-center rounded bg-white text-[#707070] shadow">
       <BiPlus
         className="grow hover:sepia"
         onClick={() => {
