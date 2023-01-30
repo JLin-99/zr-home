@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import DepartmentsNavbar from "@/components/DepartmentsNavbar";
+import Navbar from "@/components/Navbar";
 import Head from "next/head";
 import ProductShowcase from "@/components/ProductShowcase";
 import { ProductProvider } from "@/context/ProductContext";
@@ -16,7 +16,7 @@ export default function Home() {
       <main className="grid h-screen grid-cols-[5rem_1fr] grid-rows-[6rem_1fr] bg-red-300">
         <ProductProvider>
           <Header />
-          <DepartmentsNavbar />
+          <Navbar />
           <ProductShowcase />
         </ProductProvider>
       </main>

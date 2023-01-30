@@ -4,7 +4,7 @@ import { useContext } from "react";
 import Product from "./Product";
 
 export default function ProductList() {
-  const { menuProduct, products, dispatch, currentCategory } =
+  const { departmentMenu, products, dispatch, currentCategory } =
     useContext(ProductContext);
   const product = products.find((prod) => prod.category === currentCategory);
   return (
@@ -14,8 +14,10 @@ export default function ProductList() {
         onClick={() => {
           dispatch({ type: "SET_CURRENT_CATEGORY", payload: "" });
         }}
-      >{`${menuProduct && "< " + toTitleCase(menuProduct)}`}</p>
+      >{`${departmentMenu && "< " + toTitleCase(departmentMenu)}`}</p>
+
       <h2 className="pb-4 font-bold">{product?.category}</h2>
+
       <div className="grid grid-cols-fill-7 items-center justify-between gap-3">
         {product &&
           product.products.map((prod, idx) => (

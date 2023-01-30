@@ -7,33 +7,33 @@ import { formatProducts } from "@/utils/utils";
 
 export default function DepartmentBtn({ department }) {
   const [products, loading, axiosFetch] = useAxios();
-  const { menuProduct, productMenuOpen, dispatch } = useContext(ProductContext);
+  const { departmentMenu, departmentMenuOpen, dispatch } =
+    useContext(ProductContext);
 
   // UPDATE context from the API
   useEffect(() => {
     if (products.length) {
       dispatch({ type: "SET_PRODUCTS", payload: formatProducts(products) });
       dispatch({ type: "SET_PRODUCTS_LOADING", payload: loading });
-      dispatch({ type: "SET_MENU_PRODUCT", payload: department.name });
+      dispatch({ type: "SET_DEPARTMENT_MENU", payload: department.name });
     }
   }, [products]);
 
   // FETCH if necessary
   const handleClick = (path) => {
     if (
-      !productMenuOpen ||
-      (productMenuOpen && menuProduct !== department.name)
+      !departmentMenuOpen ||
+      (departmentMenuOpen && departmentMenu !== department.name)
     ) {
       axiosFetch({
         axiosInstance,
         method: "get",
         url: "/" + path,
       });
-      dispatch({ type: "SET_CURRENT_CATEGORY", payload: "" });
-      dispatch({ type: "RESET_PRODUCTS_MENU" });
-      dispatch({ type: "TOGGLE_MENU", payload: productMenuOpen + 1 });
+      dispatch({ type: "RESET_DEPARTMENT_MENU" });
+      dispatch({ type: "TOGGLE_MENU", payload: departmentMenuOpen + 1 });
     } else {
-      dispatch({ type: "RESET_PRODUCTS_MENU" });
+      dispatch({ type: "RESET_DEPARTMENT_MENU" });
     }
   };
 
@@ -41,8 +41,8 @@ export default function DepartmentBtn({ department }) {
     <div
       id={department.name}
       className={`flex w-full cursor-pointer flex-col items-center py-2 hover:bg-[#F7F7F7] hover:text-amber-900 hover:hue-rotate-90 hover:sepia ${
-        menuProduct === department.name &&
-        productMenuOpen &&
+        departmentMenu === department.name &&
+        departmentMenuOpen &&
         "bg-[#F7F7F7] text-amber-900"
       }`}
       onClick={() => handleClick(department.name)}

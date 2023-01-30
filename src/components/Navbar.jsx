@@ -18,7 +18,7 @@ const departments = [
   },
 ];
 
-export default function DepartmentsNavbar() {
+export default function Navbar() {
   return (
     <div className="z-50 flex select-none flex-col items-center justify-center bg-[#FFFFFF]">
       {departments.map((department) => (
