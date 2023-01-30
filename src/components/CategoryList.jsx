@@ -1,12 +1,17 @@
+import ProductContext from "@/context/ProductContext";
+import { toTitleCase } from "@/utils/utils";
+import { useContext } from "react";
 import CategoryRow from "./CategoryRow";
 
 export default function CategoryList() {
+  const { menuProduct, products } = useContext(ProductContext);
   return (
     <div className="h-full w-full">
-      <h2 className="pb-4 font-bold">Aberturas</h2>
+      <h2 className="pb-4 font-bold">{toTitleCase(menuProduct)}</h2>
       <div className="flex flex-col gap-3">
-        <CategoryRow category="Puertas" />
-        <CategoryRow category="Ventanas" />
+        {products.map((category, idx) => (
+          <CategoryRow key={idx} category={category.category} />
+        ))}
       </div>
     </div>
   );
