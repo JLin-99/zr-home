@@ -3,11 +3,8 @@ import ProductNavbar from "@/components/ProductNavbar";
 import Head from "next/head";
 import ProductShowcase from "@/components/ProductShowcase";
 import { ProductProvider } from "@/context/ProductContext";
-import { useEffect } from "react";
 
 export default function Home() {
-  useEffect(() => {}, []);
-
   return (
     <>
       <Head>

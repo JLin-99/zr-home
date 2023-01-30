@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ProductButton from "./ProductButton";
 
 export default function ProductNavbar() {
