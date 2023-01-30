@@ -4,7 +4,11 @@ import productReducer from "./ProductReducer";
 const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
-  const initialState = {};
+  const initialState = {
+    products: [],
+    productsLoading: false,
+    productMenuOpen: false,
+  };
 
   const [state, dispatch] = useReducer(productReducer, initialState);
 

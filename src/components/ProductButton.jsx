@@ -1,18 +1,32 @@
 import useAxios from "@/hooks/useAxios";
-import axios from "../apis/products";
+import axiosInstance from "../apis/products";
+import ProductContext from "@/context/ProductContext";
 import Image from "next/image";
+import { useContext, useEffect } from "react";
 
 export default function ProductButton({ btnName }) {
   const [products, loading, axiosFetch] = useAxios();
+  const { productMenuOpen, dispatch } = useContext(ProductContext);
 
-  const handleClick = (url) => {
-    console.log("click");
-    axiosFetch({
-      axiosInstance: axios,
-      method: "get",
-      url,
-    });
+  useEffect(() => {
+    if (products.length) {
+      dispatch({ type: "SET_PRODUCTS", payload: formatProducts(products) });
+      dispatch({ type: "SET_PRODUCTS_LOADING", payload: loading });
+    }
+  }, [products]);
+
+  const handleClick = (path) => {
+    if (!productMenuOpen) {
+      axiosFetch({
+        axiosInstance,
+        method: "get",
+        url: "/" + path,
+      });
+    }
+
+    dispatch({ type: "TOGGLE_MENU", payload: !productMenuOpen });
   };
+
   return (
     <div
       id={btnName}
@@ -31,4 +45,17 @@ export default function ProductButton({ btnName }) {
       </label>
     </div>
   );
+}
+
+function formatProducts(categories) {
+  const formattedProducts = [];
+  categories.forEach((category) => {
+    const productsObj = { category: category.name, products: [] };
+    category.items.forEach((product) => {
+      productsObj.products.push(product);
+    });
+    formattedProducts.push(productsObj);
+  });
+
+  return formattedProducts;
 }
