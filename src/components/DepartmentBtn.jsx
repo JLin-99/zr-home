@@ -31,6 +31,7 @@ export default function DepartmentBtn({ department }) {
         url: "/" + path,
       });
       dispatch({ type: "RESET_DEPARTMENT_MENU" });
+
       dispatch({ type: "TOGGLE_MENU", payload: departmentMenuOpen + 1 });
     } else {
       dispatch({ type: "RESET_DEPARTMENT_MENU" });
@@ -38,25 +39,30 @@ export default function DepartmentBtn({ department }) {
   };
 
   return (
-    <div
-      id={department.name}
-      className={`flex w-full cursor-pointer flex-col items-center py-2 hover:bg-[#F7F7F7] hover:text-amber-900 hover:hue-rotate-90 hover:sepia ${
-        departmentMenu === department.name &&
-        departmentMenuOpen &&
-        "bg-[#F7F7F7] text-amber-900"
-      }`}
-      onClick={() => handleClick(department.name)}
-    >
-      <Image
-        src={department.img}
-        height={32}
-        width={32}
-        alt="logo"
-        draggable="false"
-      />
-      <label className="text-[0.55rem]" htmlFor={department.name}>
-        {department.title}
-      </label>
+    <div className="relative w-full">
+      <div
+        id={department.name}
+        className={`flex w-full cursor-pointer flex-col items-center py-2 hover:z-50 hover:text-amber-700 hover:opacity-90 ${
+          departmentMenu === department.name &&
+          departmentMenuOpen &&
+          "bg-[#F7F7F7] text-amber-900" + invertedBorderRadius
+        }`}
+        onClick={() => handleClick(department.name)}
+      >
+        <Image
+          src={department.img}
+          height={32}
+          width={32}
+          alt="logo"
+          draggable="false"
+          className="z-50"
+        />
+        <label className="z-50 text-[0.55rem]" htmlFor={department.name}>
+          {department.title}
+        </label>
+      </div>
     </div>
   );
 }
+
+const invertedBorderRadius = `${"w-full -z-50"} ${"before:absolute before:bottom-full before:right-0 before:h-[30px] before:w-[30px] before:rounded-[110%_0%_100%_0%_/_0%_55%_45%_100%] before:pointer-events-none before:bg-transparent before:shadow-[0_17px_0_#F7F7F7]"} ${"after:absolute after:top-full after:right-0 after:h-[30px] after:w-[30px] after:rounded-[0%_100%_0%_100%_/_100%_45%_55%_0%] after:bg-transparent after:shadow-[0_-17px_0_#F7F7F7] after:pointer-events-none"}`;

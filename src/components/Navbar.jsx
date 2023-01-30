@@ -20,9 +20,9 @@ const departments = [
 
 export default function Navbar() {
   return (
-    <div className="z-50 flex select-none flex-col items-center justify-center bg-[#FFFFFF]">
+    <div className="relative z-50 flex w-full select-none flex-col items-center justify-center bg-[#FFFFFF]">
       {departments.map((department) => (
-        <DepartmentBtn department={department} />
+        <DepartmentBtn department={department} key={department.name} />
       ))}
     </div>
   );
