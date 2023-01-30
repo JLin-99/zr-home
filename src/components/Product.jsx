@@ -6,6 +6,7 @@ export default function Product({ product }) {
       <div className="h-28 w-28 bg-gray-200">
         <Image
           loader={() => product.img}
+          unoptimized="true"
           width={120}
           height={120}
           src={product.img}

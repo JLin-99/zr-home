@@ -10,6 +10,18 @@ const productReducer = (state, action) => {
       return { ...state, menuProduct: action.payload };
     case "SET_PRODUCT_MENU_CATEGORY":
       return { ...state, productMenuCategory: action.payload };
+    case "SET_CURRENT_CATEGORY":
+      return { ...state, currentCategory: action.payload };
+    case "SET_MESSAGE":
+      return { ...state, message: action.payload };
+    case "RESET_PRODUCTS_MENU":
+      return {
+        ...state,
+        products: [],
+        productMenuOpen: 0,
+        menuProduct: "",
+        currentCategory: "",
+      };
     default:
       throw new Error();
   }

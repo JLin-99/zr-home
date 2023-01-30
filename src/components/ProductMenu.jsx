@@ -5,25 +5,25 @@ import CategoryList from "./CategoryList";
 import ProductList from "./ProductList";
 
 export default function ProductMenu() {
-  const { menuProduct, productsLoading, productMenuOpen, dispatch } =
+  const { currentCategory, productsLoading, productMenuOpen, dispatch } =
     useContext(ProductContext);
 
   const handleClick = () => {
-    dispatch({ type: "TOGGLE_MENU", payload: 0 });
-    dispatch({ type: "SET_PRODUCTS", payload: [] });
-    dispatch({ type: "SET_MENU_PRODUCT", payload: "" });
+    dispatch({ type: "RESET_PRODUCTS_MENU" });
   };
   return (
     <>
       <div
-        className={`h-full w-full p-5 ${
+        className={`h-full w-full p-5 duration-300 ${
           !productMenuOpen && "scale-0"
-        } duration-200`}
+        }`}
       >
         {productsLoading ? (
           <p>Loading...</p>
+        ) : currentCategory === "" ? (
+          <CategoryList />
         ) : (
-          (true && <CategoryList />) || (true && <ProductList />)
+          <ProductList />
         )}
       </div>
       <BsChevronLeft

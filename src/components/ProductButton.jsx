@@ -27,11 +27,11 @@ export default function ProductButton({ btnName }) {
         method: "get",
         url: "/" + path,
       });
+      dispatch({ type: "SET_CURRENT_CATEGORY", payload: "" });
+      dispatch({ type: "RESET_PRODUCTS_MENU" });
       dispatch({ type: "TOGGLE_MENU", payload: productMenuOpen + 1 });
     } else {
-      dispatch({ type: "TOGGLE_MENU", payload: 0 });
-      dispatch({ type: "SET_PRODUCTS", payload: [] });
-      dispatch({ type: "SET_MENU_PRODUCT", payload: "" });
+      dispatch({ type: "RESET_PRODUCTS_MENU" });
     }
   };
 
