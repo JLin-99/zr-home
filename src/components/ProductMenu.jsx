@@ -10,7 +10,7 @@ export default function ProductMenu({ open, setOpen }) {
         {true && <ProductList />}
       </div>
       <BsChevronLeft
-        className={`absolute bottom-[calc(50%-2.5rem)] -right-6 z-20 h-20 w-6 cursor-pointer rounded-r bg-inherit p-0.5 pr-1 font-black hover:text-red-400 ${
+        className={`absolute bottom-[calc(50%-2.5rem)] -right-6 z-20 h-20 w-6 cursor-pointer rounded-r bg-inherit p-0.5 pr-1 font-black hover:sepia ${
           false && "invisible"
         }`}
         style={{ transform: "perspective(1rem) rotateY(9deg)" }}

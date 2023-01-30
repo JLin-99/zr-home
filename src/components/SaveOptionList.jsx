@@ -13,16 +13,16 @@ export default function SaveOptionList() {
   };
 
   return (
-    <Listbox value={selected} onChange={setSelected}>
+    <Listbox value={selected} onChange={setSelected} className="z-30">
       <div className="relative text-gray-700">
         <Listbox.Button className="relative w-full cursor-pointer bg-transparent pr-9 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
           <div
             onClick={handleSaveOption}
-            className="block h-10 w-40 min-w-full truncate rounded-l-md border-2 border-gray-100 bg-white text-center leading-9 hover:bg-amber-100 hover:text-amber-900"
+            className="block h-10 w-40 min-w-full truncate rounded-l-md border-2 border-gray-100 bg-white text-center leading-9 hover:sepia"
           >
             {selected}
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center rounded-r-md border-2 border-gray-100 bg-white px-2 text-center leading-10 hover:bg-amber-100 hover:text-amber-900">
+          <div className="absolute inset-y-0 right-0 flex items-center rounded-r-md border-2 border-gray-100 bg-white px-2 text-center leading-10 hover:sepia">
             <BsChevronDown
               className="h-5 w-5 text-black hover:text-amber-900"
               aria-hidden="true"
