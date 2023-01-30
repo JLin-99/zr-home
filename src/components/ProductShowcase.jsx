@@ -7,7 +7,7 @@ export default function ProductShowcase() {
   const { productMenuOpen } = useContext(ProductContext);
 
   return (
-    <div className="flex bg-black">
+    <div className="flex h-[calc(100vh-6rem)] bg-black">
       <div
         className={`relative bg-[#F7F7F7] duration-300 ${
           productMenuOpen ? "w-2/6" : "w-0"
