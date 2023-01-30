@@ -2,7 +2,7 @@ import { BsChevronRight } from "react-icons/bs";
 
 export default function CategoryRow({ category }) {
   return (
-    <div className="drop-shadow-xs relative w-full cursor-pointer rounded-lg bg-[#FFFFFF] bg-transparent px-5 pr-9 text-left hover:bg-amber-100 hover:text-amber-900">
+    <div className="drop-shadow-xs relative w-full cursor-pointer rounded-lg bg-[#FFFFFF] bg-transparent px-5 pr-9 text-left hover:sepia">
       <div className="block h-10 w-40 min-w-full truncate text-xs leading-9">
         {category}
       </div>
